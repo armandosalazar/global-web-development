@@ -4,17 +4,18 @@ import styles from './Admin.module.css';
 
 export default function Admin() {
   const [products, setProducts] = useState();
-  const [title, setTitle] = useState();
-  const [price, setPrice] = useState();
-  const [description, setDescription] = useState();
-  const [thumbnail, setThumbnail] = useState();
+  const [title, setTitle] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [thumbnail, setThumbnail] = useState('');
   const [update, setUpdate] = useState(false);
+  const [id, setId] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:3000/products').then((res) => {
       setProducts(res.data);
     });
-  }, []);
+  }, [update, title, price, description, thumbnail, id]);
 
   function handleEdit(evt, product) {
     setUpdate(!update);
@@ -23,16 +24,45 @@ export default function Admin() {
     setPrice(product.price);
     setDescription(product.description);
     setThumbnail(product.thumbnail);
+    setId(product.id);
   }
-  function handleDelete() {}
-  function handleUpdate(id) {
-    // axios.put(`http://localhost:3000/products/${id}`).then((res) => {
-    //   setUpdate(!update);
-    //   alert('Product deleted', res);
-    // });
-    // alert('Product updated');
+  function handleDelete(evt, id) {
+    axios.delete(`http://localhost:3000/products/${id}`).then((res) => {
+      setProducts(products.filter((product) => product.id !== id));
+    });
+
   }
-  function handleAdd() {}
+  function handleUpdate(evt) {
+    evt.preventDefault();
+    axios.put(`http://localhost:3000/products/${id}`, {
+      title,
+      description,
+      price,
+      thumbnail
+    }).then((_res) => {
+      setUpdate(!update);
+      alert('Product updated');
+    });
+    setTitle('');
+    setDescription('');
+    setPrice(''),
+    setThumbnail('')
+  }
+  function handleAdd(evt) {
+    evt.preventDefault();
+    axios.post('http://localhost:3000/products', {
+      title,
+      description,
+      price,
+      thumbnail
+    }).then((_res) => {
+      alert('Product added');
+    });
+    setTitle('');
+    setDescription('');
+    setPrice(''),
+    setThumbnail('')
+  }
 
   return (
     <div className={styles.container}>
@@ -62,11 +92,11 @@ export default function Admin() {
                     <b>${product.price}</b>
                   </td>
                   <td>{product.thumbnail}</td>
-                  <td style={{ display: 'flex' }}>
+                  <td>
                     <button onClick={(evt) => handleEdit(evt, product)}>
                       Edit
                     </button>
-                    <button onClick={handleDelete}>Delete</button>
+                    <button onClick={evt => handleDelete(evt, product.id)}>Delete</button>
                   </td>
                 </tr>
               ))}

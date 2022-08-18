@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CartListItem from './CartListItem';
 import Load from './Load';
 
@@ -30,7 +30,7 @@ export default function CartList() {
     <>
       {products?.map((product) => {
         if (list?.includes(product?.id)) {
-          return <CartListItem product={product} key={product?.id} />;
+          return <CartListItem product={product} key={product?.id} list={list} />;
         }
       })}
     </>

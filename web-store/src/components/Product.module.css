@@ -1,4 +1,7 @@
 .container {
+  border: 1px solid #646cff;
+  border-radius: 8px;
+  padding: 20px;
   max-width: 300px;
   display: flex;
   align-items: center;
@@ -18,11 +21,8 @@
   color: #646cff;
 }
 
-.container div {
-  border: 1px solid #646cff;
-  border-radius: 8px;
-  padding: 20px;
-}
+/* .container div {
+} */
 .container img {
   width: 100%;
   margin-bottom: 20px;
