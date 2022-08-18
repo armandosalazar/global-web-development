@@ -1,7 +1,10 @@
 # Global
 
 ## DB
-
+```sql
+CREATE DATABASE `webstore`;
+USE `webstore`;
+```
 ```sql
 CREATE TABLE `products` (
   `id` int NOT NULL AUTO_INCREMENT,
