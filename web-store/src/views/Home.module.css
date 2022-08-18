@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+}
+.container div {
+  margin: 50px;
+  padding: 50px;
+  width: 50%;
+}
+.container span {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.container p {
+  font-size: 30px;
+  font-weight: 500;
+  color: #646cff;
+  margin-bottom: 20px;
+}
+
+.container div:nth-child(1) {
+  animation-name: hero-animation;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  /* animation-delay: 2.5s; */
+}
+
+@keyframes hero-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

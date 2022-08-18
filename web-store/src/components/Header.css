@@ -1,0 +1,15 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #646cff;
+  padding: 10px 20px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 20px;
+}

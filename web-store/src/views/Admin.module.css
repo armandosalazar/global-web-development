@@ -1,0 +1,38 @@
+.container {
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+.container h1 {
+  margin-bottom: 20px;
+}
+
+.container table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: start;
+}
+
+.container th {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.container td {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.container tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.container button {
+  margin-top: 10px;
+}
+
+.container button:nth-child(1) {
+  margin-right: 10px;
+}

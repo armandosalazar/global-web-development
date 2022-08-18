@@ -1,0 +1,56 @@
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cpoint {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.cpoint div {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* border: 1px solid #646cff; */
+}
+
+.cpoint div:nth-child(1) {
+  animation-name: aninto;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.cpoint div:nth-child(2) {
+  animation-name: anout;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.cpoint div:nth-child(3) {
+  animation-name: aninto;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes aninto {
+  from {
+    background-color: #646cff;
+  }
+  to {
+    background-color: #fff;
+  }
+}
+
+@keyframes anout {
+  from {
+    background-color: #fff;
+  }
+  to {
+    background-color: #646cff;
+  }
+}

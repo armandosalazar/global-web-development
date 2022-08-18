@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: fit-content;
+  margin: 10px auto;
+  gap: 10px;
+}
+
+.containerLoad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+}
