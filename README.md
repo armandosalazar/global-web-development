@@ -27,3 +27,6 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 ```
+## Vídeos
+* [Rol usuario](https://youtu.be/6Ig26aG0UBI)
+* [Rol administrador](https://youtu.be/2ASDL0xpCuE)

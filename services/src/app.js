@@ -3,39 +3,12 @@ const cors = require('cors');
 const morgan = require('morgan');
 // const axios = require('axios').default;
 const db = require('./db');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 
 express()
   .use(cors())
   .use(morgan('dev'))
   .use(express.json())
-  .post('/buy', (req, res) => {
-    const { text, email} = req.body;
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, 
-      auth: {
-        user: 'webstore21110110@gmail.com',
-        pass: 'webstore12345'
-      }
-    });
-    const mailOptions = {
-      from: 'webstore21110110@gmail.com',
-      to: email,
-      subject: 'New Order',
-      text: text
-    };
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.log(err);
-        res.json({error: err});
-      } else {
-        res.json({message: 'Email sent: ' + info.response});
-      }
-    }
-    );
-  })
   .get('/cart/:id', (req, res) => {
     const id = req.params.id;
     db.query('SELECT * FROM users WHERE id = ?', [id], (err, result) => {
